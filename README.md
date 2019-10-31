@@ -1,6 +1,6 @@
 # DevOps with Docker
 
-- Course at [https://docker-hy.github.io/](https://docker-hy.github.io/). Register via [https://courses.helsinki.fi/en/aytkt21025en/129059389](https://courses.helsinki.fi/en/aytkt21025en/129059389).
+- Course at [docker-hy.github.io](https://docker-hy.github.io/). Register via [here](https://courses.helsinki.fi/en/aytkt21025en/129059389).
 
 
 - Docker version 19.03.4-ce, build 9013bf583a

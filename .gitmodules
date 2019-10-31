@@ -10,3 +10,6 @@
 [submodule "spring-example-project"]
 	path = spring-example-project
 	url = https://github.com/docker-hy/spring-example-project.git
+[submodule "calculator"]
+	path = calculator
+	url = https://pexea12@bitbucket.org/pexea12/calculator.git

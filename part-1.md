@@ -143,6 +143,7 @@ Now visit [http://localhost:5000/](http://localhost:5000/) and everything is set
 docker build --file Dockerfile_111 --rm -t loki .
 docker run -d -p 8000:8000 --name tricky_loki --rm --mount type=bind,source="$(pwd)"/logs.txt,target=/backend-example-docker/logs.txt loki
 ```
+
 Now visit [http://localhost:8000/](http://localhost:8000/) and everything is set.
 Run `cat logs.txt`:
 
@@ -188,23 +189,37 @@ docker build --file Dockerfile_113 --rm -t captain_america .
 docker run -d -p 8080:8080 --rm captain_america
 ```
 
-![113_result]('./images/113-result.jpg')
+![113_result](./images/113-result.jpg)
 
 # 1.14
 ```
 docker build --file Dockerfile_114 --rm -t black_widow .
 docker run -d -p 3000:3000 --rm black_widow
 ```
+Visit [http://localhost:3000](http://localhost:3000):
 
-![114_result]('./images/114-result.jpg')
+![114_result](./images/114-result.jpg)
 
 # 1.15
-I build an Alpine image for Nginx, NodeJS and Yarn at [here](https://cloud.docker.com/repository/docker/pexea12/alpine-nginx-yarn-nodejs) (NodeJS version 8.9.3, Yarn version 1.3.2 and Nginx 1.14.0). The Dockerfile is in [Dockerfile][./Dockerfile_115].
+I build an Alpine image for Nginx, NodeJS and Yarn at [here](https://cloud.docker.com/repository/docker/pexea12/alpine-nginx-yarn-nodejs) (NodeJS 8.9.3, Yarn 1.3.2 and Nginx 1.14.0). The Dockerfile is in [Dockerfile](./Dockerfile_115).
 
 This image is lightweight for any deployment with Nginx and NodeJS, which is suitable for a orchestration tool like Kubernetes. The image size is 64.6MB.
 
 # 1.16
-The application is deployed at [https://uoh-docker.herokuapp.com/](https://uoh-docker.herokuapp.com/).
+The application is deployed at [pexea12-uoh-docker.herokuapp.com](https://pexea12-uoh-docker.herokuapp.com/).
 
 # 1.17
+Build the calculator web application. The repository is at [Bitbucket](https://bitbucket.org/pexea12/calculator)
 
+```
+docker build --file Dockerfile_117 --rm -t vision .
+```
+
+The image is hosted at [Docker Hub](https://hub.docker.com/r/pexea12/vision).
+
+Run the image:
+```
+docker run -d -p 5000:5000 --rm vision
+```
+
+Visit the web application at [http://0.0.0.0:5000](http://0.0.0.0:5000).

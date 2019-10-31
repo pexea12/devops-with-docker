@@ -5,10 +5,6 @@ WORKDIR /rails-example-project
 EXPOSE 3000
 RUN bundle install \
   && apt-get update \
-  && apt-get install -y nodejs nano \
-  && rm -f config/credentials.yml.enc \
-  && EDITOR=nano rails credentials:edit \
-  && apt-get remove nano \
-  && rails db:migrate RAILS_ENV=production \
-  && rake assets:precompile
-CMD ["rails", "s", "-e", "production"]
+  && apt-get install -y nodejs \
+  && rails db:migrate
+CMD ["rails", "s"]

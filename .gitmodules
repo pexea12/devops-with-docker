@@ -15,4 +15,4 @@
 	url = https://pexea12@bitbucket.org/pexea12/calculator.git
 [submodule "scaling-exercise"]
 	path = scaling-exercise
-	url = https://github.com/docker-hy/scaling-exercise
+	url = https://github.com/docker-hy/scaling-exercise.git

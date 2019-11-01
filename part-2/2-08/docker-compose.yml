@@ -1,0 +1,68 @@
+version: '3.5'
+
+services:
+  thor:
+    build:
+      context: ../..
+      dockerfile: ./part-1/1-12/Dockerfile_front
+    expose:
+      - 5000
+    container_name: thor
+    environment:
+      - API_URL=http://localhost/api
+    networks:
+      - asgard
+
+  loki:
+    build:
+      context: ../..
+      dockerfile: ./part-1/1-12/Dockerfile_back
+    environment:
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - DB_NAME=postgres
+      - DB_HOST=odin_db
+      - REDIS=redis
+      - REDIS_PORT=6379
+      - FRONT_URL=http://localhost
+    expose:
+      - 8000
+    networks:
+      - asgard
+    depends_on:
+      - redis
+      - odin_db
+    container_name: loki
+
+  redis:
+    container_name: redis
+    image: redis:alpine3.10
+    networks:
+      - asgard
+    expose:
+      - 6379
+
+  odin_db:
+    image: postgres:12-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: password
+    container_name: odin_db
+    networks:
+      - asgard
+
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - asgard
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - thor
+      - loki
+
+networks:
+  asgard:

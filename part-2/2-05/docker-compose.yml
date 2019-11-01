@@ -23,7 +23,7 @@ services:
   redis:
     container_name: redis
     image: redis:alpine3.10
-    ports:
+    expose:
       - 6379
     networks:
       - asgard

@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+  gamora:
+    build:
+      context: ../../ml-frontend
+    ports:
+      - 3000:3000
+
+  nebula:
+    build:
+      context: ../../ml-backend
+    expose:
+      - 5000
+    ports:
+      - 5000:5000
+    depends_on:
+      - thanos
+    volumes:
+      - titan:/src/model
+
+  thanos:
+    build:
+      context: ../../ml-training
+    volumes:
+      - titan:/src/model
+      - titan_images:/src/imgs
+
+volumes:
+  titan:
+  titan_images:
+

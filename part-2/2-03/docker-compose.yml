@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  thor:
+    build:
+      context: ../..
+      dockerfile: ./part-1/1-12/Dockerfile_front
+    ports:
+      - 5000:5000
+
+  loki:
+    build:
+      context: ../..
+      dockerfile: ./part-1/1-12/Dockerfile_back
+    ports:
+      - 8000:8000

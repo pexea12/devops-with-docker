@@ -7,3 +7,4 @@
 - Clone the repository: `git clone https://github.com/pexea12/devops-with-docker --recursive`
 
 - [Part 1](./part-1.md)
+- [Part 2](./part-2.md)

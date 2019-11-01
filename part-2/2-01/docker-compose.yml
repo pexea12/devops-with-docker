@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  hulk:
+    image: devopsdockeruh/first_volume_exercise
+    volumes:
+      - ./logs.txt:/usr/app/logs.txt

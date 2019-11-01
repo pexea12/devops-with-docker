@@ -1,5 +1,7 @@
-10/31/2019, 11:24:33 AM: Connection received in root
-10/31/2019, 11:24:44 AM: Connection received in root
-10/31/2019, 11:33:39 AM: Connection received in root
-10/31/2019, 11:33:40 AM: Connection received in root
-10/31/2019, 12:08:01 PM: Connection received in root
+Thu, 31 Oct 2019 21:22:58 GMT
+Thu, 31 Oct 2019 21:23:01 GMT
+Thu, 31 Oct 2019 21:23:04 GMT
+Thu, 31 Oct 2019 21:23:07 GMT
+Secret message is:
+"Volume bind mount is easy"
+Thu, 31 Oct 2019 21:23:13 GMT

@@ -104,19 +104,19 @@ Now inserting `helsinki.fi` would give a good result:
 ....
 ```
 
-# 1.6
+## 1.6
 ```
 docker build --file Dockerfile_16 --rm -t docker-clock .
 docker run docker-clock
 ```
 
-# 1.7
+## 1.7
 ```
 docker build --file Dockerfile_17 --rm -t curler .
 docker run -it curler
 ```
 
-# 1.8
+## 1.8
 ```
 touch logs.txt
 docker run -d --mount type=bind,source="$(pwd)"/logs.txt,target=/usr/app/logs.txt devopsdockeruh/first_volume_exercise
@@ -124,21 +124,21 @@ docker run -d --mount type=bind,source="$(pwd)"/logs.txt,target=/usr/app/logs.tx
 
 Run `tail -f logs.txt` to view the logs. The secret message is `Volume bind mount is easy`.
 
-# 1.9
+## 1.9
 ```
 docker run -d -p 80:80 devopsdockeruh/ports_exercise
 ```
 
 Visit [http://localhost:80](http://localhost:80) to acacess the contents. The content is `Ports configured correctly!!`.
 
-# 1.10
+## 1.10
 ```
 docker build --file Dockerfile_110 --rm -t thor .
 docker run -d -p 5000:5000 --name furious_thor --rm thor
 ```
 Now visit [http://localhost:5000/](http://localhost:5000/) and everything is set.
 
-# 1.11
+## 1.11
 ```
 docker build --file Dockerfile_111 --rm -t loki .
 docker run -d -p 8000:8000 --name tricky_loki --rm --mount type=bind,source="$(pwd)"/logs.txt,target=/backend-example-docker/logs.txt loki
@@ -165,25 +165,27 @@ The new logs are appended to `logs.txt`:
 10/31/2019, 11:33:40 AM: Connection received in root
 ```
 
-# 1.12
-Build docker images again with `Dockerfile_112_front` and `Dockerfile_112_back`
+## 1.12
+- Workding directory: `./part-1/1-12`
+- Build docker images again with `Dockerfile_front` and `Dockerfile_back`
 
 ```
-docker build --file Dockerfile_112_front --rm -t mighty_thor .
-docker build --file Dockerfile_112_back --rm -t mighty_loki .
+docker build --file Dockerfile_front --rm -t mighty_thor ../..
+docker build --file Dockerfile_back --rm -t mighty_loki ../..
 ```
 
-Run 2 new containers:
+- Run 2 new containers:
 ```
+touch logs.txt
 docker run -d -p 5000:5000 --name furious_thor --rm mighty_thor
 docker run -d -p 8000:8000 --name tricky_loki --rm --mount type=bind,source="$(pwd)"/logs.txt,target=/backend-example-docker/logs.txt mighty_loki
 ```
 
-Now click `Press to Test!` button in [http://localhost:5000/](http://localhost:5000/) and get the `Working!` message.
+- Now click `Press to Test!` button in [http://localhost:5000/](http://localhost:5000/) and get the `Working!` message.
 
 ![112_result](./images/112-result.jpg)
 
-# 1.13
+## 1.13
 ```
 docker build --file Dockerfile_113 --rm -t captain_america .
 docker run -d -p 8080:8080 --rm captain_america
@@ -191,7 +193,7 @@ docker run -d -p 8080:8080 --rm captain_america
 
 ![113_result](./images/113-result.jpg)
 
-# 1.14
+## 1.14
 ```
 docker build --file Dockerfile_114 --rm -t black_widow .
 docker run -d -p 3000:3000 --rm black_widow
@@ -200,15 +202,15 @@ Visit [http://localhost:3000](http://localhost:3000):
 
 ![114_result](./images/114-result.jpg)
 
-# 1.15
+## 1.15
 I build an Alpine image for Nginx, NodeJS and Yarn at [here](https://cloud.docker.com/repository/docker/pexea12/alpine-nginx-yarn-nodejs) (NodeJS 8.9.3, Yarn 1.3.2 and Nginx 1.14.0). The Dockerfile is in [Dockerfile](./Dockerfile_115).
 
 This image is lightweight for any deployment with Nginx and NodeJS, which is suitable for a orchestration tool like Kubernetes. The image size is 64.6MB.
 
-# 1.16
+## 1.16
 The application is deployed at [pexea12-uoh-docker.herokuapp.com](https://pexea12-uoh-docker.herokuapp.com/).
 
-# 1.17
+## 1.17
 Build the calculator web application. The repository is at [Bitbucket](https://bitbucket.org/pexea12/calculator)
 
 ```

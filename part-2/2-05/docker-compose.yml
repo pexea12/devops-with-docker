@@ -1,0 +1,34 @@
+version: '3.5'
+
+services:
+  thor:
+    build:
+      context: ../..
+      dockerfile: ./part-1/1-12/Dockerfile_front
+    ports:
+      - 5000:5000
+
+  loki:
+    build:
+      context: ../..
+      dockerfile: ./part-1/1-12/Dockerfile_back
+    ports:
+      - 8000:8000
+    environment:
+      - REDIS=redis
+      - REDIS_PORT=6379
+    networks:
+      - asgard
+
+  redis:
+    container_name: redis
+    image: redis:alpine3.10
+    ports:
+      - 6379
+    networks:
+      - asgard
+
+networks:
+  asgard:
+    name: asgard
+    driver: bridge

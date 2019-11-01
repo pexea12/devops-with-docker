@@ -105,14 +105,18 @@ Now inserting `helsinki.fi` would give a good result:
 ```
 
 ## 1.6
+Working directory: [./part-1/1-06](./part-1/1-06)
+
 ```
-docker build --file Dockerfile_16 --rm -t docker-clock .
+docker build --rm -t docker-clock .
 docker run docker-clock
 ```
 
 ## 1.7
+Working directory: [./part-1/1-07](./part-1/1-07)
+
 ```
-docker build --file Dockerfile_17 --rm -t curler .
+docker build --rm -t curler .
 docker run -it curler
 ```
 
@@ -132,15 +136,20 @@ docker run -d -p 80:80 devopsdockeruh/ports_exercise
 Visit [http://localhost:80](http://localhost:80) to acacess the contents. The content is `Ports configured correctly!!`.
 
 ## 1.10
+Working directory: [./part-1/1-10](./part-1/1-10)
+
 ```
-docker build --file Dockerfile_110 --rm -t thor .
+docker build --rm -t thor --file Dockerfile ../..
 docker run -d -p 5000:5000 --name furious_thor --rm thor
 ```
+
 Now visit [http://localhost:5000/](http://localhost:5000/) and everything is set.
 
 ## 1.11
+Working directory: [./part-1/1-11](./part-1/1-11)
+
 ```
-docker build --file Dockerfile_111 --rm -t loki .
+docker build --file Dockerfile --rm -t loki ../..
 docker run -d -p 8000:8000 --name tricky_loki --rm --mount type=bind,source="$(pwd)"/logs.txt,target=/backend-example-docker/logs.txt loki
 ```
 
@@ -166,7 +175,7 @@ The new logs are appended to `logs.txt`:
 ```
 
 ## 1.12
-- Workding directory: `./part-1/1-12`
+- Workding directory: [./part-1/1-12](./part-1/1-12)
 - Build docker images again with `Dockerfile_front` and `Dockerfile_back`
 
 ```
@@ -186,24 +195,31 @@ docker run -d -p 8000:8000 --name tricky_loki --rm --mount type=bind,source="$(p
 ![112_result](./images/112-result.jpg)
 
 ## 1.13
+Working directory: [./part-1/1-13](./part-1/1-13)
+
 ```
-docker build --file Dockerfile_113 --rm -t captain_america .
+docker build --file Dockerfile --rm -t captain_america ../..
 docker run -d -p 8080:8080 --rm captain_america
 ```
 
 ![113_result](./images/113-result.jpg)
 
 ## 1.14
+Working directory: [./part-1/1-14](./part-1/1-14)
+
 ```
-docker build --file Dockerfile_114 --rm -t black_widow .
+docker build --file Dockerfile --rm -t black_widow ../..
 docker run -d -p 3000:3000 --rm black_widow
 ```
+
 Visit [http://localhost:3000](http://localhost:3000):
 
 ![114_result](./images/114-result.jpg)
 
 ## 1.15
-I build an Alpine image for Nginx, NodeJS and Yarn at [here](https://cloud.docker.com/repository/docker/pexea12/alpine-nginx-yarn-nodejs) (NodeJS 8.9.3, Yarn 1.3.2 and Nginx 1.14.0). The Dockerfile is in [Dockerfile](./Dockerfile_115).
+Working directory: [./part-1/1-15](./part-1/1-15)
+
+I build an Alpine image for Nginx, NodeJS and Yarn at [here](https://cloud.docker.com/repository/docker/pexea12/alpine-nginx-yarn-nodejs) (NodeJS 8.9.3, Yarn 1.3.2 and Nginx 1.14.0). The Dockerfile is in [Dockerfile](./part-1/1-15/Dockerfile).
 
 This image is lightweight for any deployment with Nginx and NodeJS, which is suitable for a orchestration tool like Kubernetes. The image size is 64.6MB.
 
@@ -211,10 +227,12 @@ This image is lightweight for any deployment with Nginx and NodeJS, which is sui
 The application is deployed at [pexea12-uoh-docker.herokuapp.com](https://pexea12-uoh-docker.herokuapp.com/).
 
 ## 1.17
+Working directory: [./part-1/1-17](./part-1/1-17)
+
 Build the calculator web application. The repository is at [Bitbucket](https://bitbucket.org/pexea12/calculator)
 
 ```
-docker build --file Dockerfile_117 --rm -t vision .
+docker build --file Dockerfile --rm -t vision ../..
 ```
 
 The image is hosted at [Docker Hub](https://hub.docker.com/r/pexea12/vision).

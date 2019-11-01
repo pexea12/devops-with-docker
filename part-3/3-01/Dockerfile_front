@@ -1,0 +1,10 @@
+FROM node:alpine
+
+COPY ./frontend-example-docker /frontend-example-docker
+WORKDIR /frontend-example-docker
+ENV API_URL=http://localhost:8000
+RUN npm install && npm run build
+
+FROM nginx:alpine
+COPY ./part-3/3-01/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=0 /frontend-example-docker/dist/* /home/
